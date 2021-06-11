@@ -35,7 +35,7 @@ r_base:
 target_platform:
 - linux-64
 tiledb:
-- '2.2'
+- '2.3'
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
