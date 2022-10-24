@@ -1,4 +1,4 @@
-{% set version = "0.6.0" %}
+{% set version = "0.6.2" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/gdalcubes_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/gdalcubes/gdalcubes_{{ version }}.tar.gz
-  sha256: 51920fb6e25e359f6ec25ac4ee8301c7d1361490c7d514ee9973e8bbe8b50f16
+  sha256: 886012ebcb5fe3e282ed06deb31fbac3c6331ccd5911e2a714278acba580a1bb
 
 build:
   merge_build_host: true  # [win]
-  number: 8
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
