@@ -21,10 +21,10 @@ build:
 
 requirements:
   build:
-    - {{ compiler('c') }}              # [not win]
-    - {{ compiler('m2w64_c') }}        # [win]
-    - {{ compiler('cxx') }}            # [not win]
-    - {{ compiler('m2w64_cxx') }}      # [win]
+    - {{ compiler('c') }}          # [not win]
+    - {{ compiler('m2w64_c') }}    # [win]
+    - {{ compiler('cxx') }}        # [not win]
+    - {{ compiler('m2w64_cxx') }}  # [win]
     - {{ posix }}filesystem        # [win]
     - {{ posix }}sed               # [win]
     - {{ posix }}grep              # [win]
@@ -38,25 +38,25 @@ requirements:
     - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
-    - r-rcpp
-    - r-rcppprogress
+    - r-bh
     - r-jsonlite
     - r-ncdf4
+    - r-rcpp
     - libnetcdf  # [not win]
-    - libgdal  # [not win]
-    - proj  # [not win]
-    - tiledb  # [not win]
+    - libgdal    # [not win]
+    - proj       # [not win]
+    - sqlite     # [not win]
   run:
     - r-base
     - {{ native }}gcc-libs         # [win]
-    - r-rcpp
-    - r-rcppprogress
+    - r-bh
     - r-jsonlite
     - r-ncdf4
+    - r-rcpp
     - libnetcdf  # [not win]
-    - libgdal  # [not win]
-    - proj  # [not win]
-    - tiledb  # [not win]
+    - libgdal    # [not win]
+    - proj       # [not win]
+    - sqlite     # [not win]
 
 test:
   commands:
