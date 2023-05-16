@@ -19,7 +19,7 @@ docker_image:
 libgdal:
 - '3.6'
 libnetcdf:
-- 4.8.1
+- 4.9.1
 pin_run_as_build:
   r-base:
     min_pin: x.x
