@@ -17,7 +17,7 @@ cxx_compiler_version:
 libgdal:
 - '3.6'
 libnetcdf:
-- 4.8.1
+- 4.9.1
 macos_machine:
 - x86_64-apple-darwin13.4.0
 pin_run_as_build:
@@ -25,7 +25,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 proj:
-- 9.1.0
+- 9.1.1
 r_base:
 - '4.1'
 sqlite:
