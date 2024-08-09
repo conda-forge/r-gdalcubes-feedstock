@@ -1,6 +1,5 @@
 {% set version = "0.7.0" %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-gdalcubes
@@ -13,15 +12,19 @@ source:
   sha256: e22433df6948efd331c5529bceeba27c71cd0d2d0ebe012bbf09b07b769cfaae
 
 build:
-  merge_build_host: true  # [win]
   skip: true  # [win]
-  number: 3
+  number: 4
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
+    - r-bh                         # [build_platform != target_platform]
+    - r-jsonlite                   # [build_platform != target_platform]
+    - r-ncdf4                      # [build_platform != target_platform]
+    - r-rcpp                       # [build_platform != target_platform]
     - {{ compiler('c') }}          # [not win]
     - {{ stdlib("c") }}            # [not win]
     - {{ compiler('m2w64_c') }}    # [win]
@@ -38,33 +41,34 @@ requirements:
     - {{ posix }}make
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
-    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - r-bh
     - r-jsonlite
     - r-ncdf4
     - r-rcpp
-    - libnetcdf  # [not win]
-    - libgdal    # [not win]
-    - proj       # [not win]
-    - sqlite     # [not win]
+    - libnetcdf
+    - libgdal
+    - proj
+    - sqlite
   run:
     - r-base
-    - {{ native }}gcc-libs         # [win]
-    - r-bh
     - r-jsonlite
     - r-ncdf4
     - r-rcpp
-    - libnetcdf  # [not win]
-    - libgdal    # [not win]
-    - proj       # [not win]
-    - sqlite     # [not win]
+    - libnetcdf
+    - libgdal
+    - proj
+    - sqlite
 
 test:
+  requires:
+    - r-tinytest
   commands:
-    - $R -e "library('gdalcubes')"           # [not win]
-    - "\"%R%\" -e \"library('gdalcubes')\""  # [win]
+    - $R -e "library('gdalcubes')"                          # [not win]
+    - $R -e "tinytest::test_package('gdalcubes')"           # [not win]
+    - "\"%R%\" -e \"library('gdalcubes')\""                 # [win]
+    - "\"%R%\" -e \"tinytest::test_package('gdalcubes')\""  # [win]
 
 about:
   home: https://github.com/appelmar/gdalcubes_R
