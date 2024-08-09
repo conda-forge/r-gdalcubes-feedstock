@@ -12,8 +12,7 @@ source:
   sha256: e22433df6948efd331c5529bceeba27c71cd0d2d0ebe012bbf09b07b769cfaae
 
 build:
-  # Checking windows to see if it passes. Uncomment the line if it fails.
-  # skip: true  # [win]
+  skip: true  # [win]
   number: 4
   rpaths:
     - lib/R/lib/
