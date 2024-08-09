@@ -67,7 +67,7 @@ test:
     - r-tinytest
   commands:
     - $R -e "library('gdalcubes')"                          # [not win]
-    - $R -e "tinytest::test_package("gdalcubes")"           # [not win]
+    - $R -e "tinytest::test_package('gdalcubes')"           # [not win]
     - "\"%R%\" -e \"library('gdalcubes')\""                 # [win]
     - "\"%R%\" -e \"tinytest::test_package('gdalcubes')\""  # [win]
 
