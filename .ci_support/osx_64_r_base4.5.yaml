@@ -21,7 +21,7 @@ cxx_compiler:
 cxx_compiler_version:
 - '19'
 libgdal:
-- '3.11'
+- '3.12'
 libnetcdf:
 - 4.9.3
 macos_machine:
