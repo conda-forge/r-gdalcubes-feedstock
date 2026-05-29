@@ -1,4 +1,4 @@
-{% set version = "0.7.3" %}
+{% set version = "0.7.4" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,11 +9,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/gdalcubes_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/gdalcubes/gdalcubes_{{ version }}.tar.gz
-  sha256: ab7077b6ccfaedc655a19c1cb566cfd35491da5bc800170c3bcbcfd6ab59f566
+  sha256: 58865c73a10d38f43d8f8198357d95194eeb68034105d7ea23f7615f1081eb29
 
 build:
   skip: true  # [win]
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -73,9 +73,9 @@ test:
 about:
   home: https://github.com/appelmar/gdalcubes_R
   license: MIT
-  summary: Processing collections of Earth observation images as on-demand multispectral, multitemporal raster data cubes. Users define cubes by spatiotemporal extent, resolution, and spatial reference system and let 'gdalcubes' automatically apply cropping, reprojection, and resampling using the 'Geospatial Data Abstraction
-    Library' ('GDAL'). Implemented functions on data cubes include reduction over space and time, applying arithmetic expressions on pixel band values, moving window aggregates over time, filtering by space, time, bands, and predicates on pixel values, exporting data cubes as 'netCDF' or 'GeoTIFF' files, and plotting.  The
-    package implements lazy evaluation and multithreading. All computational parts are implemented in C++, linking to the 'GDAL', 'netCDF', 'CURL', and 'SQLite' libraries. See Appel and Pebesma (2019) <doi:10.3390/data4030092> for further details.
+  summary: Processing collections of Earth observation images as on-demand multispectral, multitemporal raster data cubes. Users define cubes by spatiotemporal extent, resolution, and spatial reference system and let 'gdalcubes' automatically apply cropping, reprojection, and resampling using the 'Geospatial Data 
+    Abstraction Library' ('GDAL'). Implemented functions on data cubes include reduction over space and time, applying arithmetic expressions on pixel band values, moving window aggregates over time, filtering by space, time, bands, and predicates on pixel values, exporting data cubes as 'netCDF' or 'GeoTIFF' files, 
+    and plotting.  The package implements lazy evaluation and multithreading. All computational parts are implemented in C++, linking to the 'GDAL', 'netCDF', 'CURL', and 'SQLite' libraries. See Appel and Pebesma (2019) <doi:10.3390/data4030092> for further details.
   license_family: MIT
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/MIT
