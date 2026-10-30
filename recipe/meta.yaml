@@ -1,4 +1,4 @@
-{% set version = "0.7.4" %}
+{% set version = "0.7.6" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,11 +9,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/gdalcubes_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/gdalcubes/gdalcubes_{{ version }}.tar.gz
-  sha256: 58865c73a10d38f43d8f8198357d95194eeb68034105d7ea23f7615f1081eb29
+  sha256: fcbf909629271ab98d70853af55c76364ae990bcd12490168e672cd0defa5ef8
 
 build:
   skip: true  # [win]
-  number: 2
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
